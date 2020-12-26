@@ -30,5 +30,5 @@ test("Should render <Link> component", () => {
     </Router> 
     );
 
-    expect(container.querySelector("Button")).toBeInTheDocument();
+    expect(container.querySelector("a")).toBeInTheDocument();
 });

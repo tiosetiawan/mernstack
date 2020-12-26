@@ -23,7 +23,7 @@ export default function Button(props) {
             <span className="span.spiner-border.spinner-border-sm.mx-5"></span>
             <span className="sr-only">Loading...</span>
             </> :
-            props.childern
+            props.children
             }
         </span>
     )};
@@ -31,19 +31,29 @@ export default function Button(props) {
     if(props.type === "link") {
         if(props.isExternal){
             return(
-                <a href={props.href} className={className.join(" ")} style={props.style} target={props.target ==="_blank"
-            ? "_blank":undefined} rel={props.target ==="_blank" ? "noopener noreferrer":undefined}>{props.childern}</a>
+                <a 
+                    href={props.href} 
+                    className={className.join(" ")} 
+                    style={props.style} 
+                    target={props.target === "_blank" ? "_blank":undefined} 
+                    rel={props.target === "_blank" ? "noopener noreferrer":undefined}>
+                        {props.children}
+                </a>
             )
         }
         else{
-            <Link to={props.href} className={className.join(" ")} style={props.style} onClick={onClick}>
-            {props.childern}
-            </Link>
+            return(
+                <Link to={props.href} className={className.join(" ")} style={props.style} onClick={onClick}>
+                {props.children}
+                </Link>
+            )
+           
         }
     }
+    
     return (
         <button className={className.join(" ")} style={props.style} onClick={onClick}>
-              {props.childern}
+              {props.children}
         </button>
     )
 }
